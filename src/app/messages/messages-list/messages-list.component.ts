@@ -15,13 +15,13 @@ import { AsyncPipe } from "@angular/common";
   templateUrl: "./messages-list.component.html",
   styleUrl: "./messages-list.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe],
+  // imports: [AsyncPipe],
 })
 export class MessagesListComponent {
   private messagesService = inject(MessagesService);
 
-  messages$ = this.messagesService.messages$;
-  // messages = this.messagesService.allMessages;
+  // messages$ = this.messagesService.messages$;
+  messages = this.messagesService.allMessages;
   // messages: string[] = [];
   // private cdRef = inject(ChangeDetectorRef);
   // private destroyRef = inject(DestroyRef);

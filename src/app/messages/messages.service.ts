@@ -5,19 +5,19 @@ import { BehaviorSubject } from "rxjs";
   providedIn: "root",
 })
 export class MessagesService {
-  // private messages = signal<string[]>([]);
-  private messages: string[] = [];
+  private messages = signal<string[]>([]);
+  // private messages: string[] = [];
 
-  messages$ = new BehaviorSubject<string[]>([]);
+  // messages$ = new BehaviorSubject<string[]>([]);
 
-  // allMessages = this.messages.asReadonly();
-  get allMessages() {
-    return [...this.messages];
-  }
+  allMessages = this.messages.asReadonly();
+  // get allMessages() {
+  //   return [...this.messages];
+  // }
 
   addMessage(message: string) {
-    // this.messages.update((prevMessages) => [...prevMessages, message]);
-    this.messages = [...this.messages, message];
-    this.messages$.next([...this.messages]);
+    this.messages.update((prevMessages) => [...prevMessages, message]);
+    // this.messages = [...this.messages, message];
+    // this.messages$.next([...this.messages]);
   }
 }
